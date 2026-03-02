@@ -1,73 +1,83 @@
 <div align="center">
 
-# 👋 Hi, I'm Berfin Nida Öztürk
+# Hi, I’m Berfin Nida Öztürk 👋  
+### Molecular Biology & Genetics → Web Development & Product-minded Engineering
 
-### 🧬 Molecular Biology & Genetics → 💻 Software & Web Development
-
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=00C2FF&center=true&vCenter=true&width=700&lines=Frontend+Developer;Web+Designer;Tech+Explorer;Building+Modern+Digital+Experiences" />
+<a href="https://www.linkedin.com/in/berfin-nida-%C3%B6zt%C3%BCrk-6a12131b7/">LinkedIn</a>
+·
+<a href="https://github.com/berfinida">GitHub</a>
 
 </div>
 
 ---
 
-## 🚀 About Me
+## ✨ About
+I have a Molecular Biology & Genetics background and I’m building modern web experiences with a clean UI/UX mindset.  
+I enjoy turning ideas into responsive, interactive websites and practical applications.
 
-✨ Science background + technology mindset  
-💻 Building modern, clean and interactive web experiences  
-🎯 Currently focused on web development & freelance projects  
-🧠 Analytical thinking from biology + creative design from web  
+- 🌍 Istanbul, TR
+- 🎯 Focus: Frontend / UI-first websites + real-world apps
+- 🧠 Strength: analytical thinking (science) + visual execution (web)
 
 ---
 
-## 🛠️ Tech Stack
-
-<div align="center">
-
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-
-</div>
+## 🧰 Tech Stack
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend / Apps:** Python (Streamlit)
+- **Tools:** Git, GitHub
 
 ---
 
 ## 🔥 Featured Projects
 
-### ☕ Cafe Website Concepts
-Modern responsive cafe websites with UI-first design approach.
+### ☕ Cafe 17 Website
+A modern cafe website concept with a responsive layout and menu-focused UI.
 
-### 🏨 Luxury Hotel Website
-Multi-section premium UI design with advanced layout structure.
+- **Live Demo:** https://berfinida.github.io/cafe17_website/
+- **Repo:** https://github.com/berfinida/cafe17_website
 
-### 🎨 UI / UX Experiments
-Creative layouts, animations and modern web components.
+---
+
+### 🏨 Hotel Website Concepts
+Luxury hotel style UI and multi-section layouts.
+
+- **AuroraGrandHotel_Proje:** https://github.com/berfinida/AuroraGrandHotel_Proje  
+- **hotel17_website:** https://github.com/berfinida/hotel17_website  
+
+---
+
+### 🧬 NIZEN – Neurodegenerative Clinical Platform (Streamlit)
+Streamlit-based clinical follow-up & decision-support application with:
+- DMD-focused modules (dashboard, calculators, NSAA, emergency, calendar, news, AI Q&A)
+- Role-based access (`family`, `doctor`, `researcher`, `admin`)
+- Local persistence (SQLite) + optional cloud sync (Google Sheets)
+
+- **Repo:** https://github.com/berfinida/NIZEN-Neurodegenerative-Clinical-Platform
+
+---
+
+### 🧩 UI/Brand Websites
+UI-driven website concepts for different brand identities:
+- **NizenBoutique_Proje:** https://github.com/berfinida/NizenBoutique_Proje  
+- **ZenithFocus_Proje:** https://github.com/berfinida/ZenithFocus_Proje  
+
+---
+
+## 📌 What I’m Working On
+- Better component structure & reusable UI sections
+- Stronger project READMEs (screenshots, features, setup)
+- React & modern frontend patterns
 
 ---
 
 ## 📊 GitHub Stats
-
 <div align="center">
-
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=berfinida&show_icons=true&theme=tokyonight&hide_border=true"/>
-
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=berfinida&layout=compact&theme=tokyonight&hide_border=true"/>
-
+  <img height="160" src="https://github-readme-stats.vercel.app/api?username=berfinida&show_icons=true&hide_border=true" />
+  <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=berfinida&layout=compact&hide_border=true" />
 </div>
 
 ---
 
-## 🌍 Connect With Me
-
-💼 LinkedIn:  
-https://www.linkedin.com/in/berfin-nida-%C3%B6zt%C3%BCrk-6a12131b7/
-
-🐙 GitHub:  
-https://github.com/berfinida
-
----
-
-## ⚡ Fun Fact
-
-🧬 I combine scientific thinking with creative coding to build clean & functional digital experiences.
+## 🤝 Contact
+- LinkedIn: https://www.linkedin.com/in/berfin-nida-%C3%B6zt%C3%BCrk-6a12131b7/
+- GitHub: https://github.com/berfinida
