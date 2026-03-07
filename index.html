@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Berfin Nida — Code & Create</title>
+  <meta name="description" content="Berfin Nida portfolio website" />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#0b0b0b;
+      --muted:#666666;
+      --muted-2:#8b8b8b;
+      --line:#ebebeb;
+      --soft:#f7f7f7;
+      --max:1160px;
+      --radius:24px;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.6;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:min(calc(100% - 32px), var(--max));
+      margin:0 auto;
+    }
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:30;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav-inner{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .brand-mark{
+      width:42px;
+      height:42px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      background:#fff;
+    }
+
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:20px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .lang-toggle{
+      display:inline-flex;
+      border:1px solid #dcdcdc;
+      border-radius:999px;
+      overflow:hidden;
+      background:#fff;
+    }
+
+    .lang-btn{
+      border:0;
+      background:transparent;
+      color:var(--muted);
+      padding:9px 14px;
+      cursor:pointer;
+      font:inherit;
+    }
+
+    .lang-btn.active{
+      background:#111;
+      color:#fff;
+    }
+
+    .hero{
+      padding:84px 0 70px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:24px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      background:#fff;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(46px, 8vw, 96px);
+      line-height:.92;
+      letter-spacing:-.06em;
+      font-weight:800;
+      max-width:780px;
+    }
+
+    .hero-meta{
+      margin-top:20px;
+      font-size:16px;
+      color:#1d1d1d;
+      font-weight:600;
+    }
+
+    .hero-sub{
+      margin-top:22px;
+      max-width:640px;
+      font-size:18px;
+      color:var(--muted);
+    }
+
+    .hero-availability{
+      margin-top:20px;
+      color:#222;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:34px;
+    }
+
+    .btn{
+      min-height:50px;
+      padding:0 18px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      border:1px solid #111;
+      font-weight:600;
+      transition:.2s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn.primary{
+      background:#111;
+      color:#fff;
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:#111;
+    }
+
+    .hero-side{
+      display:flex;
+      justify-content:center;
+    }
+
+    .photo-card{
+      width:min(100%, 360px);
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius:30px;
+      background:linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+    }
+
+    .photo{
+      width:100%;
+      aspect-ratio:1 / 1.15;
+      object-fit:cover;
+      border-radius:22px;
+      filter:grayscale(100%);
+    }
+
+    section{
+      padding:82px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:18px;
+      margin-bottom:32px;
+    }
+
+    .section-left{
+      max-width:640px;
+    }
+
+    .section-kicker{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:var(--muted-2);
+      margin-bottom:10px;
+    }
+
+    h2{
+      margin:0;
+      font-size:clamp(30px, 4vw, 54px);
+      line-height:1;
+      letter-spacing:-.05em;
+    }
+
+    .section-desc{
+      max-width:480px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .service{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      background:var(--soft);
+    }
+
+    .service h3{
+      margin:0 0 10px;
+      font-size:22px;
+      line-height:1.2;
+    }
+
+    .service p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .project{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      background:#fff;
+      transition:.2s ease;
+    }
+
+    .project:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 40px rgba(0,0,0,.04);
+    }
+
+    .project-tag{
+      font-size:12px;
+      color:var(--muted-2);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .project h3{
+      margin:10px 0;
+      font-size:26px;
+      line-height:1.1;
+      letter-spacing:-.03em;
+    }
+
+    .project p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .project-links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:20px;
+    }
+
+    .mini-link{
+      display:inline-flex;
+      align-items:center;
+      border-bottom:1px solid #222;
+      padding-bottom:2px;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .why-item{
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      background:#fff;
+    }
+
+    .why-item strong{
+      display:block;
+      margin-bottom:8px;
+      font-size:17px;
+    }
+
+    .why-item p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+    }
+
+    .about-box,
+    .about-points{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:26px;
+      background:#fff;
+    }
+
+    .about-box p{
+      margin:0;
+      font-size:18px;
+      color:#222;
+    }
+
+    .about-points{
+      display:grid;
+      gap:16px;
+    }
+
+    .point{
+      padding-bottom:14px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .point:last-child{
+      border-bottom:0;
+      padding-bottom:0;
+    }
+
+    .point strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:16px;
+    }
+
+    .point span{
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .contact-card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:28px;
+      background:#fff;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .contact-link{
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+      min-height:86px;
+      background:var(--soft);
+      transition:.2s ease;
+    }
+
+    .contact-link:hover{
+      transform:translateY(-2px);
+    }
+
+    .contact-link small{
+      display:block;
+      color:var(--muted-2);
+      margin-bottom:6px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+    }
+
+    .contact-link div{
+      font-weight:600;
+      word-break:break-word;
+    }
+
+    .footer{
+      padding:28px 0 44px;
+      color:var(--muted-2);
+      font-size:14px;
+    }
+
+    [data-lang]{
+      display:none;
+    }
+
+    html.lang-tr [data-lang="tr"],
+    html.lang-en [data-lang="en"]{
+      display:block;
+    }
+
+    html.lang-tr [data-lang-inline="tr"],
+    html.lang-en [data-lang-inline="en"]{
+      display:inline;
+    }
+
+    [data-lang-inline]{
+      display:none;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,
+      .services,
+      .projects,
+      .about,
+      .contact-grid,
+      .why-grid{
+        grid-template-columns:1fr;
+      }
+
+      .section-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+
+    @media (max-width: 760px){
+      .nav-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:14px 0;
+      }
+
+      .nav-right{
+        width:100%;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav-links{
+        flex-wrap:wrap;
+        gap:14px;
+      }
+
+      .hero{
+        padding-top:56px;
+      }
+
+      h1{
+        font-size:54px;
+      }
+
+      .hero-sub{
+        font-size:16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <div class="brand-mark">BN</div>
+        <div>Berfin Nida</div>
+      </a>
+
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#services"><span data-lang-inline="tr">Hizmetler</span><span data-lang-inline="en">Services</span></a>
+          <a href="#projects"><span data-lang-inline="tr">Projeler</span><span data-lang-inline="en">Projects</span></a>
+          <a href="#why"><span data-lang-inline="tr">Neden Ben</span><span data-lang-inline="en">Why Me</span></a>
+          <a href="#about"><span data-lang-inline="tr">Hakkımda</span><span data-lang-inline="en">About</span></a>
+          <a href="#contact"><span data-lang-inline="tr">İletişim</span><span data-lang-inline="en">Contact</span></a>
+        </div>
+
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-set-lang="tr">TR</button>
+          <button class="lang-btn" data-set-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header id="top" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">
+          <span data-lang-inline="tr">Web Developer</span>
+          <span data-lang-inline="en">Web Developer</span>
+        </div>
+
+        <h1 data-lang="tr">Öne çıkmak isteyen markalar için modern web siteleri.</h1>
+        <h1 data-lang="en">Modern websites for brands that want to stand out.</h1>
+
+        <div class="hero-meta">
+          <span>Berfin Nida — </span>
+          <span>Code &amp; Create</span>
+        </div>
+
+        <p class="hero-sub" data-lang="tr">
+          İşletmeler, kişisel markalar ve dijital projeler için temiz, modern ve güçlü görünen web siteleri tasarlıyor ve geliştiriyorum.
+        </p>
+        <p class="hero-sub" data-lang="en">
+          I design and build clean, modern and visually strong websites for businesses, personal brands and digital projects.
+        </p>
+
+        <div class="hero-availability" data-lang="tr">Freelance projeler için uygunum.</div>
+        <div class="hero-availability" data-lang="en">Available for freelance projects.</div>
+
+        <div class="cta-row">
+          <a href="#projects" class="btn primary">
+            <span data-lang-inline="tr">Projeleri Gör</span>
+            <span data-lang-inline="en">View Projects</span>
+          </a>
+          <a href="#contact" class="btn secondary">
+            <span data-lang-inline="tr">İletişime Geç</span>
+            <span data-lang-inline="en">Contact Me</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="photo-card">
+          <img src="vesikalik.bw.jpg" alt="Berfin Nida" class="photo">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-left">
+          <div class="section-kicker" data-lang="tr">Ne Yapıyorum</div>
+          <div class="section-kicker" data-lang="en">What I Do</div>
+          <h2 data-lang="tr">Hizmetler</h2>
+          <h2 data-lang="en">Services</h2>
+        </div>
+
+        <p class="section-desc" data-lang="tr">
+          Sade tanıtım sitelerinden daha özel dijital çözümlere kadar farklı ihtiyaçlara uygun web projeleri geliştiriyorum.
+        </p>
+        <p class="section-desc" data-lang="en">
+          From clean showcase websites to more tailored digital solutions, I build web projects around real needs.
+        </p>
+      </div>
+
+      <div class="services">
+        <article class="service">
+          <h3 data-lang="tr">Web Sitesi Geliştirme</h3>
+          <h3 data-lang="en">Website Development</h3>
+          <p data-lang="tr">Modern, mobil uyumlu ve güçlü ilk izlenim bırakan web siteleri.</p>
+          <p data-lang="en">Modern, responsive websites built to create a strong first impression.</p>
+        </article>
+
+        <article class="service">
+          <h3 data-lang="tr">Landing Page Tasarımı</h3>
+          <h3 data-lang="en">Landing Pages</h3>
+          <p data-lang="tr">Daha net anlatan, daha iyi görünen ve daha etkili tek sayfa çözümler.</p>
+          <p data-lang="en">Single-page experiences designed for clarity, presentation and stronger impact.</p>
+        </article>
+
+        <article class="service">
+          <h3 data-lang="tr">Özel Web Çözümleri</h3>
+          <h3 data-lang="en">Custom Web Solutions</h3>
+          <p data-lang="tr">İhtiyaca göre özelleştirilen, işlev ve görünümü birlikte düşünen çözümler.</p>
+          <p data-lang="en">Tailored web solutions built around both functionality and visual quality.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-left">
+          <div class="section-kicker" data-lang="tr">Seçili Çalışmalar</div>
+          <div class="section-kicker" data-lang="en">Selected Work</div>
+          <h2 data-lang="tr">Projeler</h2>
+          <h2 data-lang="en">Projects</h2>
+        </div>
+
+        <p class="section-desc" data-lang="tr">
+          Arayüz kalitesi, sunum gücü ve kullanıcı deneyimi odağıyla geliştirilmiş seçili projeler.
+        </p>
+        <p class="section-desc" data-lang="en">
+          Selected projects built with strong visual presentation, interface quality and user-focused thinking.
+        </p>
+      </div>
+
+      <div class="projects">
+        <article class="project">
+          <div class="project-tag">Productivity App</div>
+          <h3>ZenithFocus</h3>
+          <p data-lang="tr">Odaklanma, derin çalışma ve verimlilik deneyimi için tasarlanmış modern web uygulaması.</p>
+          <p data-lang="en">A modern web app concept designed around focus, deep work and productivity.</p>
+          <div class="project-links">
+            <a class="mini-link" href="https://github.com/berfinida/ZenithFocus_Proje" target="_blank" rel="noopener">GitHub</a>
+            <a class="mini-link" href="https://berfinida.github.io/ZenithFocus_Proje/" target="_blank" rel="noopener">Live</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-tag">Hospitality</div>
+          <h3>Hotel17</h3>
+          <p data-lang="tr">Premium görseller ve modern arayüz yaklaşımıyla tasarlanmış lüks otel web sitesi konsepti.</p>
+          <p data-lang="en">A luxury hotel website concept built around premium visuals and a modern interface.</p>
+          <div class="project-links">
+            <a class="mini-link" href="https://github.com/berfinida" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-tag">Restaurant</div>
+          <h3>Cafe17</h3>
+          <p data-lang="tr">Marka hissi, atmosfer ve temiz yerleşimi öne çıkaran modern restoran projesi.</p>
+          <p data-lang="en">A modern restaurant website focused on atmosphere, brand feel and clean layout.</p>
+          <div class="project-links">
+            <a class="mini-link" href="https://github.com/berfinida/cafe17_website" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-tag">Luxury Hotel</div>
+          <h3>Aurora Grand Hotel</h3>
+          <p data-lang="tr">Lüks deneyimi dijitalde yansıtmak için tasarlanmış estetik odaklı otel projesi.</p>
+          <p data-lang="en">A design-led hospitality project built to reflect premium experience in digital form.</p>
+          <div class="project-links">
+            <a class="mini-link" href="https://github.com/berfinida" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-left">
+          <div class="section-kicker" data-lang="tr">Neden Birlikte Çalışalım</div>
+          <div class="section-kicker" data-lang="en">Why Work With Me</div>
+          <h2 data-lang="tr">Neden Ben?</h2>
+          <h2 data-lang="en">Why Me?</h2>
+        </div>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-item">
+          <strong data-lang="tr">Modern görünüm</strong>
+          <strong data-lang="en">Modern visual style</strong>
+          <p data-lang="tr">Temiz, güncel ve güçlü görünen arayüzler üretmeye odaklanırım.</p>
+          <p data-lang="en">I focus on clean, current and visually strong interfaces.</p>
+        </div>
+
+        <div class="why-item">
+          <strong data-lang="tr">Detaylara dikkat</strong>
+          <strong data-lang="en">Attention to detail</strong>
+          <p data-lang="tr">Boşluk, tipografi ve genel hissin güçlü olmasına önem veririm.</p>
+          <p data-lang="en">Spacing, typography and the overall feel matter in my work.</p>
+        </div>
+
+        <div class="why-item">
+          <strong data-lang="tr">Hızlı iletişim</strong>
+          <strong data-lang="en">Fast communication</strong>
+          <p data-lang="tr">Süreç boyunca net, hızlı ve düzenli iletişim kurmaya önem veririm.</p>
+          <p data-lang="en">I value clear, fast and consistent communication throughout the process.</p>
+        </div>
+
+        <div class="why-item">
+          <strong data-lang="tr">Gerçek ihtiyaç odaklı</strong>
+          <strong data-lang="en">Built around real needs</strong>
+          <p data-lang="tr">Sadece güzel görünen değil, gerçekten işe yarayan işler üretmek isterim.</p>
+          <p data-lang="en">I aim to build work that is not only beautiful, but genuinely useful.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-left">
+          <div class="section-kicker" data-lang="tr">Kısa Tanım</div>
+          <div class="section-kicker" data-lang="en">About</div>
+          <h2 data-lang="tr">Hakkımda</h2>
+          <h2 data-lang="en">About Me</h2>
+        </div>
+      </div>
+
+      <div class="about">
+        <div class="about-box">
+          <p data-lang="tr">
+            Ben Berfin Nida. Temiz, modern ve estetik açıdan güçlü dijital deneyimler üretmeyi seviyorum. Amacım sadece çalışan değil, aynı zamanda güven veren ve iyi görünen web projeleri ortaya koymak.
+          </p>
+          <p data-lang="en">
+            I'm Berfin Nida. I enjoy building clean, modern and visually strong digital experiences. My goal is not just to make things work, but to make them feel polished, trustworthy and memorable.
+          </p>
+        </div>
+
+        <div class="about-points">
+          <div class="point">
+            <strong data-lang="tr">Minimal ama güçlü tasarım</strong>
+            <strong data-lang="en">Minimal but strong design</strong>
+            <span data-lang="tr">Sade görünüm içinde güçlü bir marka hissi kurmayı önemsiyorum.</span>
+            <span data-lang="en">I care about creating a strong brand feel within a clean visual system.</span>
+          </div>
+
+          <div class="point">
+            <strong data-lang="tr">Kullanıcı odaklı yaklaşım</strong>
+            <strong data-lang="en">User-focused approach</strong>
+            <span data-lang="tr">Bir projenin sadece görünüşünü değil, kullanım hissini de önemserim.</span>
+            <span data-lang="en">I care not only about how a project looks, but also how it feels to use.</span>
+          </div>
+
+          <div class="point">
+            <strong data-lang="tr">Güçlü sunum dili</strong>
+            <strong data-lang="en">Strong presentation</strong>
+            <span data-lang="tr">Projelerin profesyonel ve güven veren bir izlenim bırakmasını hedeflerim.</span>
+            <span data-lang="en">I aim for projects to leave a professional and trustworthy impression.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-left">
+          <div class="section-kicker" data-lang="tr">Bağlantılar</div>
+          <div class="section-kicker" data-lang="en">Get In Touch</div>
+          <h2 data-lang="tr">İletişim</h2>
+          <h2 data-lang="en">Contact</h2>
+        </div>
+
+        <p class="section-desc" data-lang="tr">
+          Bir proje, iş birliği veya fikir için bana ulaşabilirsin.
+        </p>
+        <p class="section-desc" data-lang="en">
+          Feel free to reach out for collaborations, freelance work or project ideas.
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-grid">
+          <a class="contact-link" href="https://github.com/berfinida" target="_blank" rel="noopener">
+            <small>GitHub</small>
+            <div>github.com/berfinida</div>
+          </a>
+
+          <a class="contact-link" href="https://www.linkedin.com/in/berfin-nida-%C3%B6zt%C3%BCrk-6a12131b7/" target="_blank" rel="noopener">
+            <small>LinkedIn</small>
+            <div>berfin-nida-ozturk</div>
+          </a>
+
+          <a class="contact-link" href="https://wa.me/905443744032" target="_blank" rel="noopener">
+            <small>WhatsApp</small>
+            <div>+90 544 374 4032</div>
+          </a>
+
+          <a class="contact-link" href="mailto:berfinnidaozturk@gmail.com">
+            <small>Email</small>
+            <div>berfinnidaozturk@gmail.com</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      © 2026 Berfin Nida — Code &amp; Create
+    </div>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    const buttons = document.querySelectorAll('[data-set-lang]');
+    const savedLang = localStorage.getItem('portfolio-lang') || 'tr';
+
+    function setLang(lang){
+      html.classList.remove('lang-tr','lang-en');
+      html.classList.add('lang-' + lang);
+      html.setAttribute('lang', lang === 'tr' ? 'tr' : 'en');
+      buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.setLang === lang));
+      localStorage.setItem('portfolio-lang', lang);
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.setLang));
+    });
+
+    setLang(savedLang);
+  </script>
+</body>
+</html>
