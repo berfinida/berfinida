@@ -35,4 +35,5 @@ Modern e-commerce interface focused on product showcase and shopping flow.
 ## Contact
 - LinkedIn: https://www.linkedin.com/in/berfin-nida-%C3%B6zt%C3%BCrk-6a12131b7/
 - GitHub: https://github.com/berfinida
+- WhatsApp: https://wa.me/905443744032
 - Email: berfinnidaozturk@gmail.com
