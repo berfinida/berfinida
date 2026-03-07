@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Berfin Nida — Code & Create</title>
+  <title>Berfin Nida — Kod & Tasarım</title>
   <meta name="description" content="Berfin Nida portfolio website" />
   <style>
     :root{
@@ -13,8 +13,44 @@
       --muted-2:#8b8b8b;
       --line:#ebebeb;
       --soft:#f7f7f7;
+      --surface:#ffffff;
+      --nav-bg:rgba(255,255,255,.88);
+      --meta:#1d1d1d;
+      --title-muted:#3a3a3a;
+      --primary-bg:#111111;
+      --primary-text:#ffffff;
+      --primary-border:#111111;
+      --secondary-bg:#ffffff;
+      --secondary-text:#111111;
+      --secondary-border:#111111;
+      --link-underline:#222222;
+      --card-grad-a:#ffffff;
+      --card-grad-b:#f8f8f8;
       --max:1160px;
       --radius:24px;
+    }
+
+    html.theme-dark{
+      --bg:#000000;
+      --text:#f5f5f5;
+      --muted:#b3b3b3;
+      --muted-2:#8f8f8f;
+      --line:#2a2a2a;
+      --soft:#0f0f0f;
+      --surface:#121212;
+      --nav-bg:rgba(0,0,0,.88);
+      --meta:#ffffff;
+      --title-muted:#d2d2d2;
+      --primary-bg:#f5f5f5;
+      --primary-text:#000000;
+      --primary-border:#f5f5f5;
+      --secondary-bg:transparent;
+      --secondary-text:#f5f5f5;
+      --secondary-border:#4a4a4a;
+      --link-underline:#b3b3b3;
+      --card-grad-a:#121212;
+      --card-grad-b:#090909;
+      color-scheme:dark;
     }
 
     *{
@@ -52,7 +88,7 @@
       position:sticky;
       top:0;
       z-index:30;
-      background:rgba(255,255,255,.88);
+      background:var(--nav-bg);
       backdrop-filter:blur(10px);
       border-bottom:1px solid var(--line);
     }
@@ -83,7 +119,7 @@
       display:grid;
       place-items:center;
       font-weight:800;
-      background:#fff;
+      background:var(--surface);
     }
 
     .nav-right{
@@ -101,10 +137,10 @@
 
     .lang-toggle{
       display:inline-flex;
-      border:1px solid #dcdcdc;
+      border:1px solid var(--line);
       border-radius:999px;
       overflow:hidden;
-      background:#fff;
+      background:var(--surface);
     }
 
     .lang-btn{
@@ -117,8 +153,31 @@
     }
 
     .lang-btn.active{
-      background:#111;
-      color:#fff;
+      background:var(--primary-bg);
+      color:var(--primary-text);
+    }
+
+    .theme-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-height:38px;
+      padding:0 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:var(--surface);
+      color:var(--text);
+      font:inherit;
+      cursor:pointer;
+    }
+
+    .theme-btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .theme-icon{
+      font-size:14px;
+      line-height:1;
     }
 
     .hero{
@@ -145,23 +204,34 @@
       margin-bottom:24px;
       text-transform:uppercase;
       letter-spacing:.08em;
-      background:#fff;
+      background:var(--surface);
     }
 
     h1{
       margin:0;
-      font-size:clamp(46px, 8vw, 96px);
-      line-height:.92;
-      letter-spacing:-.06em;
+      font-size:clamp(34px, 5.4vw, 62px);
+      line-height:1.02;
+      letter-spacing:-.04em;
       font-weight:800;
       max-width:780px;
     }
 
     .hero-meta{
-      margin-top:20px;
-      font-size:16px;
-      color:#1d1d1d;
-      font-weight:600;
+      margin-top:18px;
+      font-size:clamp(28px, 4vw, 44px);
+      color:var(--meta);
+      font-weight:700;
+      line-height:1.05;
+      letter-spacing:-.03em;
+    }
+
+    .hero-name{
+      font-weight:800;
+    }
+
+    .hero-slogan{
+      font-weight:700;
+      color:var(--title-muted);
     }
 
     .hero-sub{
@@ -173,7 +243,7 @@
 
     .hero-availability{
       margin-top:20px;
-      color:#222;
+      color:var(--text);
       font-size:14px;
       font-weight:600;
     }
@@ -192,7 +262,7 @@
       align-items:center;
       justify-content:center;
       border-radius:999px;
-      border:1px solid #111;
+      border:1px solid var(--line);
       font-weight:600;
       transition:.2s ease;
     }
@@ -202,13 +272,15 @@
     }
 
     .btn.primary{
-      background:#111;
-      color:#fff;
+      background:var(--primary-bg);
+      color:var(--primary-text);
+      border-color:var(--primary-border);
     }
 
     .btn.secondary{
-      background:#fff;
-      color:#111;
+      background:var(--secondary-bg);
+      color:var(--secondary-text);
+      border-color:var(--secondary-border);
     }
 
     .hero-side{
@@ -221,7 +293,7 @@
       padding:22px;
       border:1px solid var(--line);
       border-radius:30px;
-      background:linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+      background:linear-gradient(180deg, var(--card-grad-a) 0%, var(--card-grad-b) 100%);
     }
 
     .photo{
@@ -303,14 +375,30 @@
     .project{
       border:1px solid var(--line);
       border-radius:var(--radius);
-      padding:24px;
-      background:#fff;
+      background:var(--surface);
       transition:.2s ease;
+      overflow:hidden;
     }
 
     .project:hover{
       transform:translateY(-2px);
       box-shadow:0 16px 40px rgba(0,0,0,.04);
+    }
+
+    .project-media{
+      aspect-ratio:16 / 10;
+      background:var(--soft);
+      border-bottom:1px solid var(--line);
+    }
+
+    .project-image{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .project-body{
+      padding:24px;
     }
 
     .project-tag{
@@ -342,7 +430,7 @@
     .mini-link{
       display:inline-flex;
       align-items:center;
-      border-bottom:1px solid #222;
+      border-bottom:1px solid var(--link-underline);
       padding-bottom:2px;
       font-size:14px;
       font-weight:600;
@@ -358,7 +446,7 @@
       border:1px solid var(--line);
       border-radius:22px;
       padding:22px;
-      background:#fff;
+      background:var(--surface);
     }
 
     .why-item strong{
@@ -384,13 +472,13 @@
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:26px;
-      background:#fff;
+      background:var(--surface);
     }
 
     .about-box p{
       margin:0;
       font-size:18px;
-      color:#222;
+      color:var(--text);
     }
 
     .about-points{
@@ -423,7 +511,7 @@
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:28px;
-      background:#fff;
+      background:var(--surface);
     }
 
     .contact-grid{
@@ -466,21 +554,21 @@
     }
 
     [data-lang]{
-      display:none;
-    }
-
-    html.lang-tr [data-lang="tr"],
-    html.lang-en [data-lang="en"]{
-      display:block;
-    }
-
-    html.lang-tr [data-lang-inline="tr"],
-    html.lang-en [data-lang-inline="en"]{
-      display:inline;
+      display:none !important;
     }
 
     [data-lang-inline]{
-      display:none;
+      display:none !important;
+    }
+
+    html:not(.lang-en) [data-lang="tr"],
+    html.lang-en [data-lang="en"]{
+      display:block !important;
+    }
+
+    html:not(.lang-en) [data-lang-inline="tr"],
+    html.lang-en [data-lang-inline="en"]{
+      display:inline !important;
     }
 
     @media (max-width: 980px){
@@ -522,7 +610,7 @@
       }
 
       h1{
-        font-size:54px;
+        font-size:40px;
       }
 
       .hero-sub{
@@ -549,9 +637,14 @@
         </div>
 
         <div class="lang-toggle">
-          <button class="lang-btn active" data-set-lang="tr">TR</button>
-          <button class="lang-btn" data-set-lang="en">EN</button>
+          <button class="lang-btn active" data-set-lang="tr" type="button" aria-label="Türkçe" aria-pressed="true">TR</button>
+          <button class="lang-btn" data-set-lang="en" type="button" aria-label="English" aria-pressed="false">EN</button>
         </div>
+        <button class="theme-btn" data-toggle-theme type="button" aria-label="Tema değiştir" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">◐</span>
+          <span data-lang-inline="tr">Tema</span>
+          <span data-lang-inline="en">Theme</span>
+        </button>
       </div>
     </div>
   </nav>
@@ -560,7 +653,7 @@
     <div class="container hero-grid">
       <div>
         <div class="eyebrow">
-          <span data-lang-inline="tr">Web Developer</span>
+          <span data-lang-inline="tr">Web Geliştirici</span>
           <span data-lang-inline="en">Web Developer</span>
         </div>
 
@@ -568,8 +661,9 @@
         <h1 data-lang="en">Modern websites for brands that want to stand out.</h1>
 
         <div class="hero-meta">
-          <span>Berfin Nida — </span>
-          <span>Code &amp; Create</span>
+          <span class="hero-name">Berfin Nida — </span>
+          <span class="hero-slogan" data-lang-inline="tr">Kod &amp; Tasarım</span>
+          <span class="hero-slogan" data-lang-inline="en">Code &amp; Create</span>
         </div>
 
         <p class="hero-sub" data-lang="tr">
@@ -578,9 +672,6 @@
         <p class="hero-sub" data-lang="en">
           I design and build clean, modern and visually strong websites for businesses, personal brands and digital projects.
         </p>
-
-        <div class="hero-availability" data-lang="tr">Freelance projeler için uygunum.</div>
-        <div class="hero-availability" data-lang="en">Available for freelance projects.</div>
 
         <div class="cta-row">
           <a href="#projects" class="btn primary">
@@ -665,43 +756,66 @@
 
       <div class="projects">
         <article class="project">
-          <div class="project-tag">Productivity App</div>
-          <h3>ZenithFocus</h3>
-          <p data-lang="tr">Odaklanma, derin çalışma ve verimlilik deneyimi için tasarlanmış modern web uygulaması.</p>
-          <p data-lang="en">A modern web app concept designed around focus, deep work and productivity.</p>
-          <div class="project-links">
-            <a class="mini-link" href="https://github.com/berfinida/ZenithFocus_Proje" target="_blank" rel="noopener">GitHub</a>
-            <a class="mini-link" href="https://berfinida.github.io/ZenithFocus_Proje/" target="_blank" rel="noopener">Live</a>
+          <div class="project-media">
+            <img class="project-image" src="zenithfocuspreview.png" alt="ZenithFocus ürün görseli" loading="lazy" />
+          </div>
+          <div class="project-body">
+            <div class="project-tag"><span data-lang-inline="tr">Verimlilik Uygulaması</span><span data-lang-inline="en">Productivity App</span></div>
+            <h3>ZenithFocus</h3>
+            <p data-lang="tr">Odak, üretkenlik ve düzenli çalışma akışı için geliştirilen modern web uygulaması.</p>
+            <p data-lang="en">A modern productivity web app focused on deep work, focus and organized flow.</p>
+            <div class="project-links">
+              <a class="mini-link" href="https://github.com/berfinida/ZenithFocus" target="_blank" rel="noopener">GitHub</a>
+              <a class="mini-link" href="https://berfinida.github.io/ZenithFocus/" target="_blank" rel="noopener"><span data-lang-inline="tr">Canlı Demo</span><span data-lang-inline="en">Demo</span></a>
+            </div>
           </div>
         </article>
 
         <article class="project">
-          <div class="project-tag">Hospitality</div>
-          <h3>Hotel17</h3>
-          <p data-lang="tr">Premium görseller ve modern arayüz yaklaşımıyla tasarlanmış lüks otel web sitesi konsepti.</p>
-          <p data-lang="en">A luxury hotel website concept built around premium visuals and a modern interface.</p>
-          <div class="project-links">
-            <a class="mini-link" href="https://github.com/berfinida" target="_blank" rel="noopener">GitHub</a>
+          <div class="project-media">
+            <img class="project-image" src="wandexpreview.png" alt="Wandex ürün görseli" loading="lazy" />
+          </div>
+          <div class="project-body">
+            <div class="project-tag"><span data-lang-inline="tr">Seyahat Keşfi</span><span data-lang-inline="en">Travel Discovery</span></div>
+            <h3>Wandex</h3>
+            <p data-lang="tr">Destinasyonları öne çıkaran, modern ve akıcı bir seyahat keşif deneyimi.</p>
+            <p data-lang="en">A modern travel discovery experience built around destinations and clean interaction.</p>
+            <div class="project-links">
+              <a class="mini-link" href="https://github.com/berfinida/Wandex" target="_blank" rel="noopener">GitHub</a>
+              <a class="mini-link" href="https://berfinida.github.io/Wandex/" target="_blank" rel="noopener"><span data-lang-inline="tr">Canlı Demo</span><span data-lang-inline="en">Demo</span></a>
+            </div>
           </div>
         </article>
 
         <article class="project">
-          <div class="project-tag">Restaurant</div>
-          <h3>Cafe17</h3>
-          <p data-lang="tr">Marka hissi, atmosfer ve temiz yerleşimi öne çıkaran modern restoran projesi.</p>
-          <p data-lang="en">A modern restaurant website focused on atmosphere, brand feel and clean layout.</p>
-          <div class="project-links">
-            <a class="mini-link" href="https://github.com/berfinida/cafe17_website" target="_blank" rel="noopener">GitHub</a>
+          <div class="project-media">
+            <img class="project-image" src="cafe17preview.png" alt="Cafe17 ürün görseli" loading="lazy" />
+          </div>
+          <div class="project-body">
+            <div class="project-tag"><span data-lang-inline="tr">Restoran</span><span data-lang-inline="en">Restaurant</span></div>
+            <h3>Cafe17</h3>
+            <p data-lang="tr">Kafe markası için hazırlanmış, atmosfer odaklı ve güçlü sunuma sahip web arayüzü.</p>
+            <p data-lang="en">A restaurant website interface designed for atmosphere, branding and clear presentation.</p>
+            <div class="project-links">
+              <a class="mini-link" href="https://github.com/berfinida/cafe17" target="_blank" rel="noopener">GitHub</a>
+              <a class="mini-link" href="https://berfinida.github.io/Cafe17/" target="_blank" rel="noopener"><span data-lang-inline="tr">Canlı Demo</span><span data-lang-inline="en">Demo</span></a>
+            </div>
           </div>
         </article>
 
         <article class="project">
-          <div class="project-tag">Luxury Hotel</div>
-          <h3>Aurora Grand Hotel</h3>
-          <p data-lang="tr">Lüks deneyimi dijitalde yansıtmak için tasarlanmış estetik odaklı otel projesi.</p>
-          <p data-lang="en">A design-led hospitality project built to reflect premium experience in digital form.</p>
-          <div class="project-links">
-            <a class="mini-link" href="https://github.com/berfinida" target="_blank" rel="noopener">GitHub</a>
+          <div class="project-media">
+            <img class="project-image" src="nizenstorepreview.png" alt="Nizenstore ürün görseli" loading="lazy" />
+          </div>
+          <div class="project-body">
+            <div class="project-tag"><span data-lang-inline="tr">E-Ticaret</span><span data-lang-inline="en">E-Commerce</span></div>
+            <h3>Nizenstore</h3>
+            <p data-lang="tr">Ürün odaklı vitrin ve net alışveriş akışı sunan modern e-ticaret arayüzü.</p>
+            <p data-lang="en">A modern e-commerce interface focused on product showcase and a clean shopping flow.</p>
+            <div class="project-links">
+              <a class="mini-link" href="https://github.com/berfinida/Nizenstore" target="_blank" rel="noopener">GitHub</a>
+              <a class="mini-link" href="https://berfinida.github.io/NizenStore/" target="_blank" rel="noopener"><span data-lang-inline="tr">Canlı Demo</span><span data-lang-inline="en">Demo</span></a>
+            </div>
           </div>
         </article>
       </div>
@@ -844,28 +958,65 @@
 
   <footer class="footer">
     <div class="container">
-      © 2026 Berfin Nida — Code &amp; Create
+      © 2026 Berfin Nida — <span data-lang-inline="tr">Kod &amp; Tasarım</span><span data-lang-inline="en">Code &amp; Create</span>
     </div>
   </footer>
 
   <script>
     const html = document.documentElement;
     const buttons = document.querySelectorAll('[data-set-lang]');
+    const themeToggle = document.querySelector('[data-toggle-theme]');
+    const metaDescription = document.querySelector('meta[name="description"]');
     const savedLang = localStorage.getItem('portfolio-lang') || 'tr';
+    const savedTheme = localStorage.getItem('portfolio-theme');
+
+    function setTheme(theme){
+      const normalizedTheme = theme === 'dark' ? 'dark' : 'light';
+      html.classList.toggle('theme-dark', normalizedTheme === 'dark');
+      html.setAttribute('data-theme', normalizedTheme);
+      if (themeToggle) {
+        themeToggle.setAttribute('aria-pressed', normalizedTheme === 'dark' ? 'true' : 'false');
+      }
+      localStorage.setItem('portfolio-theme', normalizedTheme);
+    }
 
     function setLang(lang){
+      const normalizedLang = lang === 'en' ? 'en' : 'tr';
       html.classList.remove('lang-tr','lang-en');
-      html.classList.add('lang-' + lang);
-      html.setAttribute('lang', lang === 'tr' ? 'tr' : 'en');
-      buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.setLang === lang));
-      localStorage.setItem('portfolio-lang', lang);
+      html.classList.add('lang-' + normalizedLang);
+      html.setAttribute('lang', normalizedLang);
+      document.title = normalizedLang === 'tr' ? 'Berfin Nida — Kod & Tasarım' : 'Berfin Nida — Code & Create';
+      if (metaDescription) {
+        metaDescription.setAttribute(
+          'content',
+          normalizedLang === 'tr'
+            ? 'Berfin Nida portfolyo web sitesi'
+            : 'Berfin Nida portfolio website'
+        );
+      }
+      buttons.forEach(btn => {
+        const isActive = btn.dataset.setLang === normalizedLang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+      localStorage.setItem('portfolio-lang', normalizedLang);
     }
 
     buttons.forEach(btn => {
       btn.addEventListener('click', () => setLang(btn.dataset.setLang));
     });
 
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const isDark = html.classList.contains('theme-dark');
+        setTheme(isDark ? 'light' : 'dark');
+      });
+    }
+
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
     setLang(savedLang);
   </script>
 </body>
+
 </html>
